@@ -8,10 +8,11 @@ EOSQL
 
 cat >> ${PGDATA}/postgresql.conf <<EOF
 
-wal_level = hot_standby
+wal_level = logical
 archive_mode = on
 archive_command = 'cd .'
 max_wal_senders = 8
 wal_keep_segments = 8
 hot_standby = on
+max_replication_slots = 1
 EOF
