@@ -5,10 +5,10 @@ services:
     volumes:
       - pg_data:/var/lib/postgresql/data
     environment:
-      - POSTGRES_USER=hamed
+      - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=123456
-      - POSTGRES_DB=hamed
-      - PG_REP_USER=rep
+      - POSTGRES_DB=postgres
+      - PG_REP_USER=replication
       - PG_REP_PASSWORD=123456
     networks:
       default:
@@ -17,10 +17,10 @@ services:
   pg_slave:
     build: ./slave
     environment:
-      - POSTGRES_USER=hamed
+      - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=123456
-      - POSTGRES_DB=hamed
-      - PG_REP_USER=rep
+      - POSTGRES_DB=postgres
+      - PG_REP_USER=replication
       - PG_REP_PASSWORD=123456
       - PG_MASTER_HOST=pg_master
     networks:
